@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "description": "A simple AI-powered chatbot built with Node.js and modern AI APIs. Designed to provide intelligent, conversational responses with a clean and extensible architecture.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "zohaibwebdev",
   "license": "MIT",
   "dependencies": {
+    "@openrouter/sdk": "^1.5.56",
     "dotenv": "^18.0.9"
   }
 }
