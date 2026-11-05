@@ -10,7 +10,7 @@
   "author": "zohaibwebdev",
   "license": "MIT",
   "dependencies": {
-    "@openrouter/sdk": "^1.5.56",
-    "dotenv": "^18.0.9"
+    "dotenv": "^18.0.9",
+    "openai": "^7.51.0"
   }
 }

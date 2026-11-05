@@ -1,25 +1,18 @@
 import "dotenv/config";
-import { OpenRouter } from "@openrouter/sdk";
+import OpenAI from "openai"
 
-const client = new OpenRouter({
+const client = new OpenAI({
+  baseURL: "https://openrouter.ai/api/v1",
   apiKey: process.env.OPEN_ROUTER_API_KEY
-});
+})
 
-async function bot(){
-    const response = await client.responses.send({
-        responsesRequest: {
-        model: 'gpt-4o-mini',
-        input: 'What is the meaning of life?',
-  }
-    })
-    if (!('output' in response)) {
-  throw new Error('Expected a non-streaming response');
-}
-if (response.status !== 'completed') {
-  throw new Error(response.error?.message ?? `Response ended as ${response.status}`);
-}
-const message = response.output.find((item) => item.type === 'message');
-console.log(message?.content.find((part) => part.type === 'output_text')?.text);
+async function bot() {
+    const response = await client.responses.create({
+        model: "gpt-4o-mini",
+        input: "Hello, how are you?"
+    });
+
+    console.log(response.output_text);
 }
 
 bot();
